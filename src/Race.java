@@ -14,4 +14,13 @@ abstract class Race {
     abstract String[] getMaleNamePool();
     abstract String[] getFemaleNamePool();
     abstract int getAge(int randomChoice);
+    abstract int getHeight(String gender);
+    abstract int getWeight(String gender);
+    //abstract String tableStats(GenerateRandomStats baseStats);
+    abstract int getBonusStrength();
+    abstract int getBonusDexterity();
+    abstract int getBonusConstitution();
+    abstract int getBonusIntelligence();
+    abstract int getBonusWisdom();
+    abstract int getBonusCharisma();
 }

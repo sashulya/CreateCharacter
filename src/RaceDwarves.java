@@ -13,6 +13,14 @@ public class RaceDwarves extends Race{
     private int baseAge=40;
     private double baseMaleHeight=114.3;
     private double baseFemaleHeight=109.22;
+    private double baseMaleWeight=68.03;
+    private double baseFemaleWeight=54.43;
+    private int bonusStrength=0;
+    private int bonusDexterity=0;
+    private int bonusConstitution=2;
+    private int bonusIntelligence=0;
+    private int bonusWisdom=2;
+    private int bonusCharisma=-2;
     public RaceDwarves() {
         super("Dwarves");
     }
@@ -35,7 +43,7 @@ public class RaceDwarves extends Race{
         return age;
     }
 
-    public int getHeightAndWeight(String gender){
+    public int getHeight(String gender){
         double height=0;
         switch (gender){
             case "Male":
@@ -50,4 +58,41 @@ public class RaceDwarves extends Race{
         }
         return (int)height;
     }
+
+    public int getWeight(String gender){
+        double weight=0;
+        switch (gender){
+            case "Male":
+                weight=baseMaleWeight;
+                break;
+            case "Female":
+                weight=baseFemaleWeight;
+                break;
+        }
+        for (int i=0; i<2;i++){
+            weight+=0.45*((random.nextInt(4)+1)*7);
+        }
+        return (int)weight;
+    }
+    public int getBonusStrength() {
+        return bonusStrength;
+    }
+    public int getBonusDexterity() {
+        return bonusDexterity;
+    }
+    public int getBonusConstitution() {
+        return bonusConstitution;
+    }
+    public int getBonusIntelligence() {
+        return bonusIntelligence;
+    }
+    public int getBonusWisdom() {
+        return bonusWisdom;
+    }
+    public int getBonusCharisma() {
+        return bonusCharisma;
+    }
+    /*public String tableStats(GenerateRandomStats baseStats){
+        return
+    }*/
 }

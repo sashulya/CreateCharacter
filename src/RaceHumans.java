@@ -13,6 +13,14 @@ public class RaceHumans extends Race{
     private int baseAge=15;
     private double baseMaleHeight=147.32;
     private double baseFemaleHeight=134.62;
+    private double baseMaleWeight=54.43;
+    private double baseFemaleWeight=38.55;
+    private int bonusStrength=0;
+    private int bonusDexterity=0;
+    private int bonusConstitution=0;
+    private int bonusIntelligence=0;
+    private int bonusWisdom=0;
+    private int bonusCharisma=0;
     public RaceHumans() {
         super("Humans");
     }
@@ -37,7 +45,7 @@ public class RaceHumans extends Race{
         }
         return 0;
     }
-    public int getHeightAndWeight(String gender){
+    public int getHeight(String gender){
         double height=0;
         switch (gender){
             case "Male":
@@ -51,5 +59,20 @@ public class RaceHumans extends Race{
             height+=2.54*(random.nextInt(10)+1);
         }
         return (int)height;
+    }
+    public int getWeight(String gender){
+        double weight=0;
+        switch (gender){
+            case "Male":
+                weight=baseMaleWeight;
+                break;
+            case "Female":
+                weight=baseFemaleWeight;
+                break;
+        }
+        for (int i=0; i<2;i++){
+            weight+=0.45*((random.nextInt(10)+1)*5);
+        }
+        return (int)weight;
     }
 }

@@ -12,6 +12,14 @@ public class RaceElves extends Race{
     }
     private int baseAge=110;
     private double baseHeight=162.56;
+    private double baseMaleWeight=49.89;
+    private double baseFemaleWeight=40.82;
+    private int bonusStrength=0;
+    private int bonusDexterity=2;
+    private int bonusConstitution=-2;
+    private int bonusIntelligence=2;
+    private int bonusWisdom=0;
+    private int bonusCharisma=0;
     public RaceElves() {
         super("Elves");
     }
@@ -36,7 +44,7 @@ public class RaceElves extends Race{
         }
         return 0;
     }
-    public int getHeightAndWeight(String gender){
+    public int getHeight(String gender){
         double height=baseHeight;
         switch (gender){
             case "Male":
@@ -53,5 +61,22 @@ public class RaceElves extends Race{
 
         return (int)height;
     }
-
+    public int getWeight(String gender){
+        double weight=0;
+        switch (gender){
+            case "Male":
+                weight=baseMaleWeight;
+                for (int i=0; i<2;i++){
+                    weight+=0.45*((random.nextInt(8)+1)*3);
+                }
+                break;
+            case "Female":
+                weight=baseFemaleWeight;
+                for (int i=0; i<2;i++){
+                    weight+=0.45*((random.nextInt(6)+1)*3);
+                }
+                break;
+        }
+        return (int)weight;
+    }
 }

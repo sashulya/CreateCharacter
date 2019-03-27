@@ -33,7 +33,8 @@ public class Character {
                 typeAge="Trained";
                 break;
         }
-
+        height=race.getHeight(gender);
+        weight=race.getHeight(gender);
     }
     private String name;
     public String getName() {
@@ -99,12 +100,34 @@ public class Character {
         return typeAge;
     }
 
+    private int height;
+    public int getHeight() {
+        return height;
+    }
+
+    private int weight;
+    public int getWeight() {
+        return height;
+    }
+
+
     @Override
     public String toString() {
         return "Character:\n" +
                 "Name: " + name +
                 "\nRace: " + race.getRaceName() +
                 "\nGender: " + gender +
-                "\nAlignment: " + alignment;
+                "\nAlignment: " + alignment +
+                "\nAge: " + age + " " + typeAge +
+                "\nHeight: " + gender + "sm  Weight: " + weight + "kg" +
+                "\nStats (bonuses includes)" +
+                "\nStrength:" + (randomStats.getStrength()+race.getBonusStrength()) +
+                "\nDexterity:" + (randomStats.getDexterity()+race.getBonusDexterity()) +
+                "\nConstitution:" + (randomStats.getConstitution()+race.getBonusConstitution()) +
+                "\nStrength:" + (randomStats.getIntelligence()+race.getBonusIntelligence()) +
+                "\nStrength:" + (randomStats.getWisdom()+race.getBonusWisdom()) +
+                "\nStrength:" + (randomStats.getCharisma()+race.getBonusCharisma());
+
+
     }
 }
