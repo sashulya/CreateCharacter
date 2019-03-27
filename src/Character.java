@@ -34,25 +34,21 @@ public class Character {
                 break;
         }
         height=race.getHeight(gender);
-        weight=race.getHeight(gender);
+        weight=race.getWeight(gender);
     }
     private String name;
     public String getName() {
         return name;
     }
-
     private Race race;
     public Race getRace() {
         return race;
     }
-
     private String gender;
     public String getGender() {
         return gender;
     }
-
     GenerateRandomStats randomStats;
-
     private String alignment;
     public String getAlignment() {
         return alignment;
@@ -89,28 +85,22 @@ public class Character {
         }
          ;
     }
-
     private int age;
     public int getAge() {
         return age;
     }
-
     private String typeAge;
     public String getTypeAge() {
         return typeAge;
     }
-
     private int height;
     public int getHeight() {
         return height;
     }
-
     private int weight;
     public int getWeight() {
         return height;
     }
-
-
     @Override
     public String toString() {
         return "Character:\n" +

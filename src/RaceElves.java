@@ -79,4 +79,22 @@ public class RaceElves extends Race{
         }
         return (int)weight;
     }
+    public int getBonusStrength() {
+        return bonusStrength;
+    }
+    public int getBonusDexterity() {
+        return bonusDexterity;
+    }
+    public int getBonusConstitution() {
+        return bonusConstitution;
+    }
+    public int getBonusIntelligence() {
+        return bonusIntelligence;
+    }
+    public int getBonusWisdom() {
+        return bonusWisdom;
+    }
+    public int getBonusCharisma() {
+        return bonusCharisma;
+    }
 }

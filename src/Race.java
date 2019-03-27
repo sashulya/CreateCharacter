@@ -2,11 +2,9 @@ import java.util.Random;
 
 abstract class Race {
     final static Random random = new Random();
-
     public Race(String raceName) {
         this.raceName = raceName;
     }
-
     private String raceName;
     public String getRaceName() {
         return raceName;
@@ -16,7 +14,6 @@ abstract class Race {
     abstract int getAge(int randomChoice);
     abstract int getHeight(String gender);
     abstract int getWeight(String gender);
-    //abstract String tableStats(GenerateRandomStats baseStats);
     abstract int getBonusStrength();
     abstract int getBonusDexterity();
     abstract int getBonusConstitution();

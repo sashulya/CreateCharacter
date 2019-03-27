@@ -9,7 +9,6 @@ public class GenerateRandomStats {
 	private int wisdom;
 	private int charisma;
 	final static Random random = new Random();
-	
 	public GenerateRandomStats(int bound) {
 		switch(random.nextInt(bound)) {
 			case 0:
@@ -28,7 +27,6 @@ public class GenerateRandomStats {
 	public int getIntelligence() { return intelligence; }
 	public int getWisdom() { return wisdom; }
 	public int getCharisma() { return charisma; }
-	
 	private void generateStandard() {
 		this.strength = random.nextInt(16)+3;
 		this.dexterity = random.nextInt(16)+3;
@@ -37,7 +35,6 @@ public class GenerateRandomStats {
 		this.wisdom = random.nextInt(16)+3;
 		this.charisma = random.nextInt(16)+3;
 	}
-	
 	private void generate5d6best3() {
 		cycleForGenerate5d6best3(this.strength);
 		cycleForGenerate5d6best3(this.dexterity);
@@ -46,7 +43,6 @@ public class GenerateRandomStats {
 		cycleForGenerate5d6best3(this.wisdom);
 		cycleForGenerate5d6best3(this.charisma);
 	}
-	
 	private void cycleForGenerate5d6best3(int stat) {
 		int roll[] = new int[5];
 		for (int i = 0; i < 4; i++) {
@@ -55,7 +51,6 @@ public class GenerateRandomStats {
 		Arrays.sort(roll);
 		stat = roll[3] + roll[4] + roll[5];
 	}
-	
 	private void generate2d6plus6() {
 		cycleForGenerate2d6plus6(this.strength);
 		cycleForGenerate2d6plus6(this.dexterity);
@@ -64,14 +59,12 @@ public class GenerateRandomStats {
 		cycleForGenerate2d6plus6(this.wisdom);
 		cycleForGenerate2d6plus6(this.charisma);
 	}
-	
 	private void cycleForGenerate2d6plus6(int stat) {
 		for (int i = 0; i < 2; i++) {
 			stat = random.nextInt(6);
 		}
 		stat = stat + 6;
 	}
-	
 	private void generate3d6() {
 		cycleForGenerate3d6(this.strength);
 		cycleForGenerate3d6(this.dexterity);
@@ -80,7 +73,6 @@ public class GenerateRandomStats {
 		cycleForGenerate3d6(this.wisdom);
 		cycleForGenerate3d6(this.charisma);
 	}
-	
 	private void cycleForGenerate3d6(int stat) {
 		for (int i = 0; i < 3; i++) {
 			stat = random.nextInt(6);

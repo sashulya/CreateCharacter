@@ -42,7 +42,6 @@ public class RaceDwarves extends Race{
         }
         return age;
     }
-
     public int getHeight(String gender){
         double height=0;
         switch (gender){
@@ -58,7 +57,6 @@ public class RaceDwarves extends Race{
         }
         return (int)height;
     }
-
     public int getWeight(String gender){
         double weight=0;
         switch (gender){
@@ -92,7 +90,4 @@ public class RaceDwarves extends Race{
     public int getBonusCharisma() {
         return bonusCharisma;
     }
-    /*public String tableStats(GenerateRandomStats baseStats){
-        return
-    }*/
 }
