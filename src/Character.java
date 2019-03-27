@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Character {
-    final static Random random = new Random();
+    final static private Random random = new Random();
     public Character() {
     }
     public Character(Race race, GenerateRandomStats randomStats) {
@@ -48,12 +48,12 @@ public class Character {
     public String getGender() {
         return gender;
     }
-    GenerateRandomStats randomStats;
+    private GenerateRandomStats randomStats;
     private String alignment;
     public String getAlignment() {
         return alignment;
     }
-    public void setAlignment(int randomChoice) {
+   private void setAlignment(int randomChoice) {
         switch(randomChoice){
             case 1:
                 this.alignment = "Lawful Good";
@@ -83,7 +83,6 @@ public class Character {
                 this.alignment = "Neutral Evil";
                 break;
         }
-         ;
     }
     private int age;
     public int getAge() {
@@ -111,11 +110,11 @@ public class Character {
                 "\nAge: " + age + " " + typeAge +
                 "\nHeight: " + height + "sm  Weight: " + weight + "kg" +
                 "\nStats (bonuses includes) " + randomStats.getTypeGenerate() +
-                "\nStrength:" + (randomStats.getStrength()+race.getBonusStrength()) +
-                "\nDexterity:" + (randomStats.getDexterity()+race.getBonusDexterity()) +
-                "\nConstitution:" + (randomStats.getConstitution()+race.getBonusConstitution()) +
-                "\nIntelligence:" + (randomStats.getIntelligence()+race.getBonusIntelligence()) +
-                "\nWisdom:" + (randomStats.getWisdom()+race.getBonusWisdom()) +
-                "\nCharisma:" + (randomStats.getCharisma()+race.getBonusCharisma());
+                "\nStrength: " + (randomStats.getStrength()+race.getBonusStrength()) + " (" + race.getBonusStrength() + ")" +
+                "\nDexterity: " + (randomStats.getDexterity()+race.getBonusDexterity()) + " (" + race.getBonusDexterity() + ")" +
+                "\nConstitution: " + (randomStats.getConstitution()+race.getBonusConstitution()) + " (" + race.getBonusConstitution() + ")" +
+                "\nIntelligence: " + (randomStats.getIntelligence()+race.getBonusIntelligence()) + " (" + race.getBonusIntelligence() + ")" +
+                "\nWisdom: " + (randomStats.getWisdom()+race.getBonusWisdom()) + " (" + race.getBonusWisdom() + ")" +
+                "\nCharisma: " + (randomStats.getCharisma()+race.getBonusCharisma()) + " (" + race.getBonusCharisma() + ")";
     }
 }
