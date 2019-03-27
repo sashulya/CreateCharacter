@@ -4,8 +4,9 @@ public class Character {
     final static Random random = new Random();
     public Character() {
     }
-    public Character(Race race) {
+    public Character(Race race, GenerateRandomStats randomStats) {
         this.race = race;
+        this.randomStats = randomStats;
         switch(random.nextInt(2)){
             case 0:
                 this.name = this.race.getMaleNamePool()[random.nextInt(this.race.getMaleNamePool().length)];
@@ -15,8 +16,24 @@ public class Character {
                 this.name = this.race.getFemaleNamePool()[random.nextInt(this.race.getFemaleNamePool().length)];
                 this.gender = "Female";
                 break;
+        } //выбор пола и имени
+        setAlignment(random.nextInt(9)+1); //мировозрение
+        int tAge = random.nextInt(3); //возраст
+        switch (tAge){
+            case 0:
+                age=race.getAge(tAge);
+                typeAge="Intuitive";
+                break;
+            case 1:
+                age=race.getAge(tAge);
+                typeAge="Self-Taught";
+                break;
+            case 2:
+                age=race.getAge(tAge);
+                typeAge="Trained";
+                break;
         }
-        setAlignment(random.nextInt(9)+1);
+
     }
     private String name;
     public String getName() {
@@ -24,13 +41,17 @@ public class Character {
     }
 
     private Race race;
-    private String gender;
     public Race getRace() {
         return race;
     }
+
+    private String gender;
     public String getGender() {
         return gender;
     }
+
+    GenerateRandomStats randomStats;
+
     private String alignment;
     public String getAlignment() {
         return alignment;
@@ -66,6 +87,16 @@ public class Character {
                 break;
         }
          ;
+    }
+
+    private int age;
+    public int getAge() {
+        return age;
+    }
+
+    private String typeAge;
+    public String getTypeAge() {
+        return typeAge;
     }
 
     @Override

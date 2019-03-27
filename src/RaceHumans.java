@@ -10,7 +10,46 @@ public class RaceHumans extends Race{
     public String[] getFemaleNamePool() {
         return femaleNamePool;
     }
+    private int baseAge=15;
+    private double baseMaleHeight=147.32;
+    private double baseFemaleHeight=134.62;
     public RaceHumans() {
         super("Humans");
+    }
+    public int getAge(int randomChoice){
+        int age=baseAge;
+        switch (randomChoice){
+            case 0:
+                for (int i=0; i<1;i++){
+                    age+=(random.nextInt(4)+1);
+                }
+                return age;
+            case 1:
+                for (int i=0; i<1;i++){
+                    age+=(random.nextInt(6)+1);
+                }
+                return age;
+            case 2:
+                for (int i=0; i<2;i++){
+                    age+=(random.nextInt(6)+1);
+                }
+                return age;
+        }
+        return 0;
+    }
+    public int getHeightAndWeight(String gender){
+        double height=0;
+        switch (gender){
+            case "Male":
+                height=baseMaleHeight;
+                break;
+            case "Female":
+                height=baseFemaleHeight;
+                break;
+        }
+        for (int i=0; i<2;i++){
+            height+=2.54*(random.nextInt(10)+1);
+        }
+        return (int)height;
     }
 }

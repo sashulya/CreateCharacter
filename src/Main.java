@@ -10,16 +10,16 @@ public class Main {
         Character myChar=new Character();
         switch(random.nextInt(3)){
             case 0:
-                myChar = new Character(new RaceDwarves());
+                myChar = new Character(new RaceDwarves(), new GenerateRandomStats(random.nextInt(4)));
                 break;
             case 1:
-                myChar = new Character(new RaceHumans());
+                myChar = new Character(new RaceHumans(), new GenerateRandomStats(random.nextInt(4)));
                 break;
             case 2:
-                myChar = new Character(new RaceElves());
+                myChar = new Character(new RaceElves(), new GenerateRandomStats(random.nextInt(4)));
                 break;
         }
-        System.out.println(myChar.toString());
+        System.out.println(14.3+2);
         //System.out.println(myChar.getRace().getRaceName());
     }
 }

@@ -13,4 +13,5 @@ abstract class Race {
     }
     abstract String[] getMaleNamePool();
     abstract String[] getFemaleNamePool();
+    abstract int getAge(int randomChoice);
 }
