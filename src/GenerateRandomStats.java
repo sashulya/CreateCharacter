@@ -8,17 +8,29 @@ public class GenerateRandomStats {
 	private int intelligence;
 	private int wisdom;
 	private int charisma;
-	final static Random random = new Random();
+	private String typeGenerate;
+    public String getTypeGenerate() {
+        return typeGenerate;
+    }
+    final static Random random = new Random();
 	public GenerateRandomStats(int bound) {
-		switch(random.nextInt(bound)) {
+		switch(bound) {
 			case 0:
 				generateStandard();
+				typeGenerate="Random 0 to 15 + 3";
+				break;
 			case 1:
 				generate5d6best3();
+                typeGenerate="Random 5d6 best 3";
+				break;
 			case 2:
+                typeGenerate="Random 2d6 + 6";
 				generate2d6plus6();
+                break;
 			case 3:
+                typeGenerate="Random 3d6";
 				generate3d6();
+                break;
 		}
 	}
 	public int getStrength() {	return strength;	}
@@ -36,47 +48,99 @@ public class GenerateRandomStats {
 		this.charisma = random.nextInt(16)+3;
 	}
 	private void generate5d6best3() {
-		cycleForGenerate5d6best3(this.strength);
-		cycleForGenerate5d6best3(this.dexterity);
-		cycleForGenerate5d6best3(this.constitution);
-		cycleForGenerate5d6best3(this.intelligence);
-		cycleForGenerate5d6best3(this.wisdom);
-		cycleForGenerate5d6best3(this.charisma);
+	    for(int i=0; i<6; i++){
+            cycleForGenerate5d6best3(i);
+        }
 	}
-	private void cycleForGenerate5d6best3(int stat) {
+	private void cycleForGenerate5d6best3(int typeStat) {
 		int roll[] = new int[5];
 		for (int i = 0; i < 4; i++) {
-			roll[i] = random.nextInt(6);
+			roll[i] = random.nextInt(6)+1;
 		}
 		Arrays.sort(roll);
-		stat = roll[3] + roll[4] + roll[5];
+		switch (typeStat){
+            case 0:
+                this.strength=roll[2] + roll[3] + roll[4];
+                break;
+            case 1:
+                this.dexterity=roll[2] + roll[3] + roll[4];
+                break;
+            case 2:
+                this.constitution=roll[2] + roll[3] + roll[4];
+                break;
+            case 3:
+                this.intelligence=roll[2] + roll[3] + roll[4];
+                break;
+            case 4:
+                this.wisdom=roll[2] + roll[3] + roll[4];
+                break;
+            case 5:
+                this.charisma=roll[2] + roll[3] + roll[4];
+                break;
+        }
 	}
 	private void generate2d6plus6() {
-		cycleForGenerate2d6plus6(this.strength);
-		cycleForGenerate2d6plus6(this.dexterity);
-		cycleForGenerate2d6plus6(this.constitution);
-		cycleForGenerate2d6plus6(this.intelligence);
-		cycleForGenerate2d6plus6(this.wisdom);
-		cycleForGenerate2d6plus6(this.charisma);
+        for(int i=0; i<6; i++){
+            cycleForGenerate2d6plus6(i);
+        }
 	}
-	private void cycleForGenerate2d6plus6(int stat) {
+	private void cycleForGenerate2d6plus6(int typeStat) {
+	    int stat = 6;
 		for (int i = 0; i < 2; i++) {
-			stat = random.nextInt(6);
+			stat += random.nextInt(6)+1;
 		}
-		stat = stat + 6;
+        switch (typeStat){
+            case 0:
+                this.strength=stat;
+                break;
+            case 1:
+                this.dexterity=stat;
+                break;
+            case 2:
+                this.constitution=stat;
+                break;
+            case 3:
+                this.intelligence=stat;
+                break;
+            case 4:
+                this.wisdom=stat;
+                break;
+            case 5:
+                this.charisma=stat;
+                break;
+        }
+
 	}
 	private void generate3d6() {
-		cycleForGenerate3d6(this.strength);
-		cycleForGenerate3d6(this.dexterity);
-		cycleForGenerate3d6(this.constitution);
-		cycleForGenerate3d6(this.intelligence);
-		cycleForGenerate3d6(this.wisdom);
-		cycleForGenerate3d6(this.charisma);
+        for(int i=0; i<6; i++){
+            cycleForGenerate3d6(i);
+        }
 	}
-	private void cycleForGenerate3d6(int stat) {
-		for (int i = 0; i < 3; i++) {
-			stat = random.nextInt(6);
-		}
+	private void cycleForGenerate3d6(int typeStat) {
+	    int stat=0;
+        for (int i = 0; i < 3; i++) {
+            stat += random.nextInt(6)+1;
+        }
+        switch (typeStat){
+            case 0:
+                this.strength=stat;
+                break;
+            case 1:
+                this.dexterity=stat;
+                break;
+            case 2:
+                this.constitution=stat;
+                break;
+            case 3:
+                this.intelligence=stat;
+                break;
+            case 4:
+                this.wisdom=stat;
+                break;
+            case 5:
+                this.charisma=stat;
+                break;
+        }
 	}
 }
 

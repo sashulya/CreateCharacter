@@ -109,15 +109,13 @@ public class Character {
                 "\nGender: " + gender +
                 "\nAlignment: " + alignment +
                 "\nAge: " + age + " " + typeAge +
-                "\nHeight: " + gender + "sm  Weight: " + weight + "kg" +
-                "\nStats (bonuses includes)" +
+                "\nHeight: " + height + "sm  Weight: " + weight + "kg" +
+                "\nStats (bonuses includes) " + randomStats.getTypeGenerate() +
                 "\nStrength:" + (randomStats.getStrength()+race.getBonusStrength()) +
                 "\nDexterity:" + (randomStats.getDexterity()+race.getBonusDexterity()) +
                 "\nConstitution:" + (randomStats.getConstitution()+race.getBonusConstitution()) +
-                "\nStrength:" + (randomStats.getIntelligence()+race.getBonusIntelligence()) +
-                "\nStrength:" + (randomStats.getWisdom()+race.getBonusWisdom()) +
-                "\nStrength:" + (randomStats.getCharisma()+race.getBonusCharisma());
-
-
+                "\nIntelligence:" + (randomStats.getIntelligence()+race.getBonusIntelligence()) +
+                "\nWisdom:" + (randomStats.getWisdom()+race.getBonusWisdom()) +
+                "\nCharisma:" + (randomStats.getCharisma()+race.getBonusCharisma());
     }
 }
